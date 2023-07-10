@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TreeData.js</title>
+    <!--Optional-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--Required-->
+    <link rel="stylesheet" href="treeData.min.css">
+
+    <!-- <link rel="stylesheet" href="modal.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+<div id="container">
+    <div onclick="scalePlus()" class="scale-btn plus">+</div>
+    <div onclick="minusScale()" class="scale-btn minuse">-</div>
+
+    <div id="tree"></div>
+
+  <!-- modal 1 -->
+  <div class="modal-card details-modal">
+    <div class="image-container">
+        <img class="img-media" src="../assets/1.jpg" alt="User Information">
+
+        <svg class="icon icon-close" onclick="closeModalBox()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+            <path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"></path>
+        </svg>
+    </div>
+
+    <h4 class="modal-name">Hossein Vossoughi</h4>
+    <h5 class="user-job">Web Developer</h5>
+    <form class="details-form">
+      <div class="input-container">
+        <label for="ID">Personel ID</label>
+        <input readonly type="text" placeholder="Enter ID" value="1360000000" class="idPerson" id="ID" name="" maxlength="10">
+      </div>
+          <div class="input-container">
+            <label for="fName">Name</label>
+        <input readonly type="text" placeholder="Enter the First Name" class="firstNameValue" id="fName" value="Henry" name="" maxlength="15">
+          </div>
+          <div class="input-container">
+            <label for="lName">Last name</label>
+        <input readonly type="text" placeholder="Enter the Last Name" class="lastNameValue"  id="lName" value="Cavil" name="" maxlength="20">
+          </div>
+          <div class="input-container">
+            <label for="birthDate">Birth date</label>
+          <input readonly type="text" placeholder="Enter the date of birth" class="birthDateValue"  id="birthDate" value="1370/01/01" name="" maxlength="10">
+          </div>
+          <div class="input-container">
+            <label for="degree">Education</label>
+            <input readonly type="text" placeholder="Enter Degree" class="degreeValue"  value="Master" id="degree" name="" maxlength="16">
+          </div>
+          <div class="input-container">
+            <label for="Major">Study field</label>
+        <input readonly type="text" placeholder="Enter the field of study" class="fieldValue"  id="Major" value="Computer engineering" name="" maxlength="22">
+          </div>
+          <div class="input-container">
+            <label for="job">Job</label>
+          <input readonly type="text" placeholder="Enter the job" id="job" class="jobValue"  value="Web Developer" name="" maxlength="18">
+          </div>
+        </form>
+
+  </div>
+
+  <!-- modal 2 -->
+  <div class="modal-card edit-modal">
+    <div class="image-container">
+        <img class="img-media" src="../assets/1.jpg" alt="User Information" class="img-media">
+
+        <svg class="icon icon-close" onclick="closeModalBox()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+            <path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"></path>
+        </svg>
+    </div>
+
+    <h4 class="modal-name">Hossein Vossoughi</h4>
+    <h5 class="user-job">Web Developer</h5>
+    <form class="edit-form">
+      <div class="input-container">
+        <label for="parentId">Parent ID</label>
+      <input type="text" id="parentId"  name="" class="parentId" maxlength="5" readonly>
+      </div>
+      <div class="input-container">
+        <label for="ID">Personel code</label>
+        <input readonly type="text" placeholder="Enter ID" value="1360000000" id="ID" name="" maxlength="10" class="userId">
+      </div>
+          <div class="input-container">
+            <label for="fName">Name</label>
+        <input type="text" placeholder="Enter the First Name" id="fName" value="Henry" name="" maxlength="15"  class="firstName">
+          </div>
+          <div class="input-container">
+            <label for="lName">last name</label>
+        <input type="text" placeholder="Enter the Last Name" id="lName" value="Cavil" name="" maxlength="20" class="lastName">
+          </div>
+          <div class="input-container">
+            <label for="birthDate">Birth date</label>
+          <input  type="text" placeholder="Enter the date of birth" id="birthDate" value="1370/01/01" name="" maxlength="10" class="birthDateValue">
+          </div>
+          <div class="input-container">
+            <label for="degree">Education</label>
+            <input type="text" placeholder="Enter Degree" value="Master" id="degree" name="" maxlength="16" class="degreeValue" >
+          </div>
+          <div class="input-container">
+            <label for="Major">Study field</label>
+        <input type="text" placeholder="Enter the field of study" id="Major" value="Computer engineering" class="fieldValue" name="" maxlength="22">
+          </div>
+          <div class="input-container">
+            <label for="job">Job</label>
+          <input type="text" placeholder="Enter the job" id="job" value="Web Developer" name="" class="jobValue" maxlength="18">
+          </div>
+          <div>
+            <button class="card-edit-btn">Edit</button>
+            <button class="card-cancel-btn">Cancel</button>
+          </div>
+        </form>
+
+  </div>
+
+  <!-- modal 3 -->
+  <div class="modal-card add-modal">
+    <div class="image-container">
+        <img class="img-media lozad" data-placeholder-background="#fcfbfa" src="../assets/1.jpg" alt="User Information">
+
+        <svg class="icon icon-close" onclick="closeModalBox()" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+            <path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"></path>
+        </svg>
+    </div>
+
+    <h4 class="modal-name">Hossein Vossoughi</h4>
+    <h5 class="user-job">Web Developer</h5>
+    <form class="add-form">
+      <div class="input-container">
+        <label for="parentId">Parent ID</label>
+      <input type="text" id="parentId"  name="" class="parentId" maxlength="5" readonly>
+      </div>
+      <div class="input-container">
+        <label for="ID">Personel Code</label>
+        <input type="text" placeholder="Enter personel code" id="ID" name="" maxlength="10" class="addId">
+      </div>
+          <div class="input-container">
+            <label for="fName">Name</label>
+        <input type="text" placeholder="Enter name" id="fName"  name="" maxlength="15" class="addName">
+          </div>
+          <div class="input-container">
+            <label for="lName">Last name</label>
+        <input  type="text" placeholder="Enter last name" id="lName"  name="" maxlength="20" class="addLastName">
+          </div>
+          <div class="input-container">
+            <label for="birthDate">Birth date</label>
+          <input type="text" placeholder="Enter birth date" id="birthDate"  name="" maxlength="10" class="addBirthDate">
+          </div>
+          <div class="input-container">
+            <label for="degree">Education</label>
+            <input type="text" placeholder="Enter education"  id="degree" name="" maxlength="16" class="addDegree">
+          </div>
+          <div class="input-container">
+            <label for="Major">Study field</label>
+        <input  type="text" placeholder="Enter stude field" id="Major"  name="" maxlength="22" class="addMajor">
+          </div>
+          <div class="input-container">
+            <label for="job">Job</label>
+          <input type="text" placeholder="Enter job" id="job" name="" maxlength="18" class="addJob">
+          </div>
+          <div>
+            <button class="card-edit-btn">Add</button>
+            <button class="card-cancel-btn">Cancel</button>
+          </div>
+        </form>
+
+  </div>
+<!--modal 4 -->
+<div class="modal-card delete-modal">
+  <p>Do you really want to delete?</p>
+  <button class="card-edit-btn">Yes</button>
+  <button class="card-cancel-btn">No</button>
+</div>
+</div>
+
+<script>
+  let treeDatas = {
+    zelda : {id:1 , value : "", parent : ""},
+    1 : {firstName : "Angela  ", lastName:" Clark" , imageAddress:"userIon.png" , personId : "1" , field:"Computer Engineering", birthDate:"1377/04/06", degree:"Master" , jobName:"Web Developer" ,  parent : "zelda"},
+    2 : {firstName : "Donald ", lastName:"Howard" , imageAddress:"/assets/1.jpg", personId : "2" , field:"Chemical Engineering", birthDate:"1378/04/06", degree:"Master", jobName:"Application Develoepr" , parent : 1 },
+    3 : {firstName : "Donald ", lastName:"Adams" , imageAddress:"../assets/2.png", personId : "3" , field:"Chemical Engineering", birthDate:"1379/04/06", degree:"Master", jobName:"Application Develoepr" , parent : 2},
+    4 : {firstName : "Dennis ", lastName:"Polen" , imageAddress:"../assets/3.png", personId : "4" ,  field:"Chemical Engineering", birthDate:"", degree:"Master", jobName:"Application Develoepr" , parent : 3},
+    5 : {firstName : "Betty ", lastName:"Burns" , imageAddress:"../assets/4.png", personId : "5" ,  field:"Chemical Engineering", birthDate:"", degree:"Bachelor", jobName:"Application Develoepr" , parent : 3},
+    6 : {firstName : "Norma", lastName:"Wadsworth" , imageAddress:"../assets/5.png", personId : "6" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 3},
+    7 : {firstName : "David", lastName:"Washington" , imageAddress:"../assets/6.png", personId : "7" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 4},
+    8 : {firstName : "Ronald", lastName:"Burdine" , imageAddress:"../assets/7.png", personId : "8" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent :4},
+    9 : {firstName : "Walter",  lastName:"Halford" ,imageAddress:"../assets/8.png", personId : "9" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 4},
+    10 : {firstName : "Charles ", lastName:"Gant" ,imageAddress:"../assets/1.png", personId : "10" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 4},
+    11 : {firstName : "Karen", lastName:"Hummel" ,imageAddress:"../assets/2.png", personId : "11" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 5},
+    12 : {firstName : "Frankie ", lastName:"Lehn" ,imageAddress:"../assets/3.png", personId : "12" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 5},
+    13 : {firstName : "Tina", lastName:"Griggs" ,imageAddress:"../assets/4.png", personId : "13" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 5},
+    14 : {firstName : "Alayna ", lastName:"Sutton" ,imageAddress:"../assets/5.png", personId : "14" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 6},
+    15 : {firstName : "Kathleen", lastName:"Rains" ,imageAddress:"../assets/6.png", personId : "15" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 6},
+    16 : {firstName : "Victor", lastName:"Horton",imageAddress:"../assets/7.png", personId : "16" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 6},
+    17 : {firstName : "David", lastName:"Lewis" ,imageAddress:"../assets/8.png", personId : "17" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 7},
+    18 : {firstName : "Joseph ", lastName:"Goodman" ,imageAddress:"../assets/1.png", personId : "18" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"Application Develoepr" , parent : 7},
+    19 : {firstName : "Milton", lastName:"Edwards" ,imageAddress:"../assets/2.png", personId : "19" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"Application Develoepr" , parent :7},
+    20 : {firstName : "Mary" , lastName:"Donovan",imageAddress:"../assets/3.png", personId: "20" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",   parent : 8},
+    21 : {firstName : "Angela", lastName:"Griggs" ,imageAddress:"../assets/4.png", personId: "21" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent : 8},
+    22 : {firstName : "Donald", lastName:"Clark" ,imageAddress:"../assets/5.png", personId: "22" ,  field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent : 8},
+    23 : {firstName : "Dennis", lastName:"Washington" ,imageAddress:"../assets/6.png", personId: "23" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent : 9},
+    24 : {firstName : "Betty", lastName:"Griggs" ,imageAddress:"../assets/7.png", personId: "24" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"",  parent : 9},
+    25 : {firstName : "Donald", lastName:"Burns" ,imageAddress:"../assets/8.png", personId: "25" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"",  parent : 9},
+    26 : {firstName : "Dennis", lastName:"Halford" ,imageAddress:"../assets/1.png", personId: "26" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent : 10},
+    27 : {firstName : "Angela", lastName:"Washington" ,imageAddress:"../assets/2.png", personId: "27" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent : 10},
+    28 : {firstName : "Betty", lastName:"Clark" ,imageAddress:"../assets/3.png", personId: "28" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"",  parent : 10},
+    29 : {firstName : "Norma", lastName:"Griggs" ,imageAddress:"../assets/4.png", personId: "29" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent : 11},
+    30 : {firstName : "Donald", lastName:"Halford" ,imageAddress:"../assets/5.png", personId: "30" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"",  parent :11},
+    31 : {firstName : "Dennis", lastName:"Clark" ,imageAddress:"../assets/6.png", personId: "31" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"",  parent : 11},
+    32 : {firstName : "Angela", lastName:"Halford" ,imageAddress:"../assets/7.png", personId: "32" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"",  parent: 12},
+    33 : {firstName : "Donald", lastName:" Burns" ,imageAddress:"../assets/8.png", personId: "33" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent: 12},
+    34 : {firstName : "Norma", lastName:"Washington" ,imageAddress:"../assets/1.png", personId: "34" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent: 13},
+    35 : {firstName : "Betty", lastName:"Sutton" ,imageAddress:"../assets/2.png", personId: "35" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"",  parent: 13},
+    36 : {firstName : "Angela", lastName:"Lewis" ,imageAddress:"../assets/3.png", personId: "36" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent: 13},
+    37 : {firstName : "Norma", lastName:"Clark" ,imageAddress:"../assets/4.png", personId: "37" ,  field:"Chemical Engineering",birthDate:"", degree:"", jobName:"",  parent: 16},
+    38 : {firstName : "Donald", lastName:"Griggs" ,imageAddress:"../assets/5.png", personId: "38" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent: 16},
+    39 : {firstName : "Ronald", lastName:"Burns" ,imageAddress:"../assets/6.png", personId: "39" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent: 17},
+    40 : {firstName : "Norma", lastName:"Halford" ,imageAddress:"../assets/7.png", personId: "40" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"",  parent: 17},
+    41 : {firstName : "Angela", lastName:"Washington" ,imageAddress:"../assets/7.png", personId: "41" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent :18},
+    42 : {firstName : "Betty", lastName:"Clark" ,imageAddress:"../assets/7.png", personId: "42" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent : 18},
+    43 : {firstName : "Donald", lastName:"Griggs" ,imageAddress:"../assets/7.png", personId: "43" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent : 18},
+    44 : {firstName : "Angela", lastName:"Halford" ,imageAddress:"../assets/7.png", personId: "44" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent : 19},
+    45 : {firstName : "Norma", lastName:"Halford" ,imageAddress:"../assets/7.png", personId: "45" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent : 19},
+    46 : {firstName : "Betty", lastName:"Burns" ,imageAddress:"../assets/7.png", personId: "46" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent : 20},
+    47 : {firstName : "Angela", lastName:"Clark" ,imageAddress:"../assets/7.png", personId: "47" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent :20},
+    48 : {firstName : "Betty", lastName:"Griggs" ,imageAddress:"../assets/7.png", personId: "48" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent : 21},
+    49 : {firstName : "Donald", lastName:"Washington" ,imageAddress:"../assets/7.png", personId: "49" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent : 21},
+    50 : {firstName : "Angela", lastName:"Clark" ,imageAddress:"../assets/7.png", personId: "50" , field:"Chemical Engineering", birthDate:"", degree:"", jobName:"", parent : 22},
+};
+</script>
+
+
+
+<script>
+
+
+
+function TreeData(data, select) {
+    var main = document.querySelector(select);
+    var treecanvas = document.createElement('div');
+    treecanvas.className = 'tree';
+
+    var treeCode = buildTree(data, Object.keys(data)[0]);
+    treecanvas.innerHTML = treeCode;
+    main.appendChild(treecanvas);
+}
+
+function buildTree(obj, node) {
+
+
+    let userCard = ` <div  class='div-container'> 
+          <div class="custom-select" style="width:150px;">
+                <div class="details" value="1" >Details </div>
+                <div class="edit" value="2">Edit</div>
+                <div class="add" value="3">Add</div>
+                <div class="delete" value="3">Delete</div>
+            </div>
+
+    <div class="user-more" onclick="openCustomSelect(this)">
+            <i class="fa-solid fa-ellipsis"></i>
+        </div>
+        <div class="card" >
+            <div class="user-info">
+                <div class="user-image" >
+                    <img src="${obj[node].imageAddress}" alt="">
+                </div>
+            <div class="user-details">
+         
+            <h3 class="user-name">
+            ${obj[node].firstName +" "+ obj[node].lastName}
+            </h3>
+            
+    </div>
+</div>
+
+<div class="user-data">
+    <div class="user-proficiency">
+      <span>Developer</span>
+      <span> ${obj[node].jobName}</span>
+    </div>
+    <div class="code">
+      <span> ${obj[node].personId}</span>
+    </div> 
+</div>
+<div onclick=toggleTree(this) class="parent-plus"><span>+</span></div>
+
+</div>
+                    </div>`;
+    var treeString = `<li><a>  ${userCard} </a>`;
+
+
+
+
+    var sons = [];
+    for (var i in obj) {
+        if (obj[i].parent == node) {
+            sons.push(i);
+        }
+    }
+    if (sons.length > 0) {
+
+        treeString += "<ul>";
+
+        for (var i in sons) {
+            treeString += buildTree(obj, sons[i]);
+
+        }
+        treeString += "</ul>";
+    }
+    return treeString;
+}
+
+
+
+
+</script>
+
+<script>
+  let addModal = document.querySelector(".modal-card.add-modal");
+let editModal = document.querySelector(".modal-card.edit-modal");
+let details = document.querySelector('.modal-card.details-modal');
+
+let scaleButton = document.querySelector(".scale-btn");
+let containerElem = document.querySelector('#tree');
+let zoomLevel = 1;
+
+
+let mainContainer=document.querySelector('.main-container');
+
+
+// Start scroll Page
+function scrollHorizontally() {
+  let container = document.querySelector('#container');
+  const centerTree = (container.scrollWidth - container.clientWidth) / 2;
+  document.body.scrollTo({
+    left: centerTree
+  });
+  console.log('OK')
+}
+window.addEventListener('load', function () {
+  scrollHorizontally()
+})
+
+// End scroll Page
+
+// Start Toggle Tree Variables
+let modalBox = document.querySelector('.modal-card');
+let iconClose = document.querySelector('.icon-close');
+
+
+function toggleTree(link) {
+  let treeChildren = link.parentElement.parentElement.parentElement.nextSibling.children;
+  // End toggle Tree Variables
+
+  //Start Hide last Child Plus
+  Array.from(treeChildren).forEach(element => {
+    if (element.hasChildNodes('ul')) {
+      let result = element.children;
+      if (result.length < 2) {
+        console.log(result, result.length)
+        Array.from(result).forEach(r => {
+          let plusElement = r.querySelector('.parent-plus');
+          let deleteBtn = r.querySelector('.custom-select .delete')
+          plusElement.style.display = "none";
+          deleteBtn.classList.add('active');
+          let modalDelete = document.querySelector('.modal-card.delete-modal');
+          deleteBtn.addEventListener('click', function () {
+            modalDelete.style.display = "block";
+          })
+          //yes delete button
+          let deleteNoBtn = modalDelete.querySelector('.card-cancel-btn');
+          deleteNoBtn.addEventListener('click', function () {
+            modalDelete.style.display = "none";
+          })
+          // no delete button
+          let deleteYesBtn = modalDelete.querySelector('.card-edit-btn');
+          deleteYesBtn.addEventListener('click', function () {
+            modalDelete.style.display = "none";
+          })
+        })
+      }
+    }
+  })
+  let result = link.parentElement.parentElement.parentElement.parentElement.hasChildNodes("ul");
+  console.log(result)
+  //End Hide last Child Plus
+
+  // Toggle Tree 
+
+  link.parentElement.parentElement.parentElement.nextSibling.classList.toggle("activeUl");
+
+let parentPlus=link.firstElementChild;
+console.log(parentPlus);
+  if (link.parentElement.parentElement.parentElement.nextSibling.classList.contains("activeUl")) {
+    parentPlus.innerHTML = "-";
+  }
+  else {
+    parentPlus.innerHTML = "+";
+  }
+}
+
+// Toggle Tree 
+
+TreeData(treeDatas, "#tree");
+
+
+
+// Zoom page codes
+
+
+function scalePlus() {
+  if (zoomLevel < 2) {
+    zoomLevel = zoomLevel + 0.1;
+    containerElem.style.zoom = `${zoomLevel}`;
+    scrollHorizontally();
+  }
+}
+
+function minusScale() {
+  if (zoomLevel > -1) {
+    zoomLevel = zoomLevel - 0.1;
+    containerElem.style.zoom = `${zoomLevel}`;
+    scrollHorizontally();
+  }
+}
+
+
+
+// Modal Details Variables
+let modalCard = document.querySelector('.modal-card');
+let userCards = document.querySelectorAll('.div-container');
+let modalName = modalCard.querySelector('.details-modal .modal-name');
+let modalImage = modalCard.querySelector('.details-modal .img-media');
+let modalJob = modalCard.querySelector('.details-modal .user-job');
+let modalPersonId = modalCard.querySelector('.details-modal .idPerson');
+let modalPersonFirstName = modalCard.querySelector('.details-modal .firstNameValue');
+let modalPersonLastName = modalCard.querySelector('.details-modal .lastNameValue');
+let modalBirthDate = modalCard.querySelector('.details-modal .birthDateValue');
+let modalDegree = modalCard.querySelector('.details-modal .degreeValue');
+let modalField = modalCard.querySelector('.details-modal .fieldValue');
+let modalJobInput = modalCard.querySelector('.details-modal .jobValue');
+
+// Start Modal Edit Variables
+let editModalParentId=document.querySelector('.parentId');
+let editModalName = document.querySelector('.edit-modal .modal-name');
+let editModalImage = document.querySelector('.edit-modal .img-media');
+let editModalJob = document.querySelector('.edit-modal .user-job');
+let editModalPersonId = document.querySelector('.edit-modal .userId');
+let editModalPersonFirstName = document.querySelector('.edit-modal .firstName');
+let editModalPersonLastName = document.querySelector('.edit-modal .lastName');
+let editModalBirthDate = document.querySelector('.edit-modal .birthDateValue');
+let editModalDegree = document.querySelector('.edit-modal .degreeValue');
+let editModalField = document.querySelector('.edit-modal .fieldValue');
+let editModalJobInput = document.querySelector('.edit-modal .jobValue');
+
+// Start Modal Edit Variables
+let addModalName = document.querySelector('.add-modal .modal-name');
+let addmodalPParentId = document.querySelector('.add-modal .parentId');
+let addModalJob = document.querySelector('.add-modal .user-job');
+let addModalImage=document.querySelector('.add-modal .img-media');
+
+function openCustomSelect(select) {
+  let customSelects=document.querySelectorAll('.custom-select');
+  customSelects.forEach(customSelect=>{
+   
+    if(!(customSelect===select.previousElementSibling)){
+       customSelect.classList.remove('active')
+    }
+  })
+  select.previousElementSibling.classList.toggle('active');
+  let personCode = select.nextElementSibling.children[1].lastElementChild.firstElementChild.innerText;
+  
+  
+ 
+  select.previousElementSibling.children[0].addEventListener('click', function () {
+    details.classList.add("modal-active");
+    editModal.classList.remove("modal-active");
+    addModal.classList.remove("modal-active");
+    for (const t in treeDatas) {
+      if (personCode === treeDatas[t].personId) {
+        modalName.innerHTML = treeDatas[t].firstName + " " + treeDatas[t].lastName;
+        modalImage.src = treeDatas[t].imageAddress;
+        modalJob.innerHTML = treeDatas[t].jobName;
+        modalPersonId.value = treeDatas[t].personId;
+        modalPersonFirstName.value = treeDatas[t].firstName;
+        modalPersonLastName.value = treeDatas[t].lastName;
+        modalBirthDate.value = treeDatas[t].birthDate;
+        modalDegree.value = treeDatas[t].degree;
+        modalField.value = treeDatas[t].field;
+        modalJobInput.value = treeDatas[t].jobName;
+      }
+    }
+  })
+  select.previousElementSibling.children[1].addEventListener('click', function () {
+    details.classList.remove("modal-active");
+    editModal.classList.add("modal-active");
+    addModal.classList.remove("modal-active");
+    console.log(editModalName,editModalImage,editModalJob,editModalPersonId,editModalPersonFirstName,editModalPersonLastName,editModalBirthDate,editModalDegree,editModalField,editModalJobInput)
+    console.log()
+    for (const t in treeDatas) {
+      if (personCode === treeDatas[t].personId) {
+        editModalName.innerText = treeDatas[t].firstName + " " + treeDatas[t].lastName;
+        editModalParentId.value=treeDatas[personCode].parent;
+        editModalImage.src = treeDatas[t].imageAddress;
+        editModalJob.innerText = treeDatas[t].jobName;
+        editModalPersonId.value = treeDatas[t].personId;
+        editModalPersonFirstName.value = treeDatas[t].firstName;
+        editModalPersonLastName.value = treeDatas[t].lastName;
+        editModalBirthDate.value = treeDatas[t].birthDate;
+        editModalDegree.value = treeDatas[t].degree;
+        editModalField.value = treeDatas[t].field;
+        editModalJobInput.value = treeDatas[t].jobName;
+      }
+    }
+  })
+  select.previousElementSibling.children[2].addEventListener('click', function () {
+    details.classList.remove("modal-active");
+    editModal.classList.remove("modal-active");
+    addModal.classList.add("modal-active");
+    for (const t in treeDatas) {
+      if (personCode === treeDatas[t].personId) {
+        addModalName.innerHTML = treeDatas[t].firstName + " " + treeDatas[t].lastName;
+        addModalJob.innerText = treeDatas[t].jobName;
+        addmodalPParentId.value = treeDatas[t].personId;
+        addModalImage.src='../assets/empty-user.png';
+      }
+    }
+  })
+
+  document.body.addEventListener("keydown" , (e) =>{ 
+
+    if(e.keyCode === 27){
+      select.previousElementSibling.classList.remove('active');
+      console.log(customSelect);
+
+    }
+  })
+  window.addEventListener("mousedown" , (e) =>{ 
+    modalCard.classList.remove("modal-active");
+
+    })
+}
+
+
+let detailsModal = (document.querySelector('.details-modal'));
+
+
+
+
+function closeModalBox() {
+  let modals = document.querySelectorAll('.modal-card');
+  modals.forEach(modal => {
+    modal.classList.remove('modal-active')
+  })
+}
+
+</script>
+</body>
+</html>

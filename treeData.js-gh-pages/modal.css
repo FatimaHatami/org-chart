@@ -1,0 +1,78 @@
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 12px;
+    padding: .3rem .5rem;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    color: #5a5a5ab6;
+    transition: .3s;
+}
+
+
+.user-info {
+    display: flex;
+    border-radius: 15px;
+}
+
+.user-info .user-image {
+    height: 100px;
+    width: 90px; */
+    /* border-radius: 20px; */
+ /* } */
+
+
+
+ /* .user-details {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    margin-left: 10px;
+    border-radius: 15px;
+    width: 70%;
+} */
+.user-info .user-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.user-more {
+    margin: 10px 10px 24px 0;
+    font-size: 20px;
+    cursor: pointer;
+    color: #024d1c;
+    position: absolute;
+    top: 5%;
+    right: 4%;
+    z-index: 1000;
+}
+
+.user-info .user-name {
+    margin-left: 10px;
+    width: 120px;
+    margin-bottom: -10px;
+}
+/*
+.user-proficiency {
+    background-color: #fff;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    border-radius: 15px;
+}
+
+.user-proficiency span:first-child {
+    color: #024d1c;
+    margin-bottom: .5rem;
+    font-weight: bold;
+}  */
